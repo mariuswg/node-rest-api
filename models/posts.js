@@ -5,15 +5,24 @@ const postSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    content: {
+    description: {
+        type: String,
+        required: false
+    },
+    body: {
         type: String,
         required: true
     },
-    date: {
+    date_posted: {
         type: Date,
         required: true,
         default: Date.now
-    }    
+    },
+    author: {
+        type: String,
+        required: false
+    },
+    tags: [{type: String}]
 });
 
 module.exports = mongoose.model('Post', postSchema);

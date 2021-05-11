@@ -1,6 +1,12 @@
 const express = require('express');
 const router = express.Router();
+// const cors = require('cors');
 const Post = require('../models/posts');
+
+// var corsOptions = {
+//     origin: 'http://localhost:80',
+//     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+//   };
 
 // Get all
 router.get('/', async (req, res) => {
@@ -21,7 +27,10 @@ router.get('/:id', getPost, (req, res) => {
 router.post('/', async (req, res) => {
     const post = new Post({
         title: req.body.title,
-        content: req.body.content
+        description: req.body.description,
+        body: req.body.body,
+        author: req.body.author,
+        tags: req.body.tags
     });
 
     try {
@@ -37,8 +46,17 @@ router.patch('/:id', getPost, async (req, res) => {
     if(req.body.title != null) {
         res.post.title = req.body.title;
     }
-    if(req.body.content != null) {
-        res.post.content = req.body.content;
+    if(req.body.description != null) {
+        res.post.description = req.body.description;
+    }
+    if(req.body.body != null) {
+        res.post.body = req.body.body;
+    }
+    if(req.body.author != null) {
+        res.post.author = req.body.author;
+    }
+    if(req.body.tags != null) {
+        res.post.tags = req.body.tags;
     }
     try {
         const updatedPost = await res.post.save();

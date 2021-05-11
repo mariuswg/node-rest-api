@@ -10,8 +10,11 @@ POST http://localhost:3000/posts
 Content-Type: application/json
 
 {
-    "title": "A post",
-    "content": "The text content."
+    "title": "A tech post",
+    "body": "The text content.",
+    "author": "Marius",
+    "description": "Description of the post",
+    "tags": ["Tech", "IT"]
 }
 
 ###
