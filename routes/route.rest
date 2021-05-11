@@ -1,0 +1,28 @@
+GET http://localhost:3000/posts
+
+###
+
+GET http://localhost:3000/posts/609a3ba4df4220870c89f947
+
+###
+
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+    "title": "A post",
+    "content": "The text content."
+}
+
+###
+
+DELETE http://localhost:3000/posts/609a3ba4df4220870c89f947
+
+###
+
+PATCH  http://localhost:3000/posts/609a3ba4df4220870c89f947
+Content-Type: application/json
+
+{
+    "title": "Updated post"
+}
